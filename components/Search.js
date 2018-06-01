@@ -2,9 +2,7 @@ Search = React.createClass({
 //set initial state of searched text
     getInitialState() {
       return {
-        loading: false,
-        searchingText: '',
-        gif: {}
+        searchingText: ''
       };
     },
 //add function hanling form state change
@@ -23,6 +21,7 @@ Search = React.createClass({
     }
   },
 
+
     render: function() {
         var styles = {
             fontSize: '1.5em',
@@ -30,13 +29,15 @@ Search = React.createClass({
             maxWidth: '350px'
         };
 
-    return <input
+    return (
+        <input
              type="text"
              onChange={this.handleChange}
              onKeyUp={this.handleKeyUp}
              placeholder="Tutaj wpisz wyszukiwaną frazę"
              style={styles}
              value={this.state.searchTerm}
-            />
+        />
+    );
   }
 });
