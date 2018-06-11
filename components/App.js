@@ -1,4 +1,4 @@
-var GIPHY_API_URL= 'https://api.giphy.com/v1/';
+var GIPHY_API_URL= 'https://api.giphy.com/';
 var GIPHY_PUB_KEY= 'yxJFI5Kgf7ayNGsdJx94G4JVCuypgf88';
 
 App = React.createClass({
@@ -25,11 +25,11 @@ App = React.createClass({
     },
 
     getGif: function(searchingText, callback){
-            
+            var prefix = "https://cors-anywhere.herokuapp.com/";
             var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
             console.log(url);
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', url);
+            xhr.open('GET',prefix + url);
             xhr.onload=function(){
                 if(xhr.status === 200){
                     var data =JSON.parse(xhr.responseText).data; 
